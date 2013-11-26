@@ -1,14 +1,10 @@
 ========================================================================
-    CONSOLE APPLICATION : ConsoleApplication1 Project Overview
+    UpdServer Project Overview
 ========================================================================
 
-AppWizard has created this ConsoleApplication1 application for you.
+Udp Server is a tool to collect NLog messages sent over UDP protocol by Indexers
 
-This file contains a summary of what you will find in each of the files that
-make up your ConsoleApplication1 application.
-
-
-ConsoleApplication1.vcxproj
+UpdServer.vcxproj
     This is the main project file for VC++ projects generated using an Application Wizard.
     It contains information about the version of Visual C++ that generated the file, and
     information about the platforms, configurations, and project features selected with the
@@ -21,7 +17,7 @@ ConsoleApplication1.vcxproj.filters
     similar extensions under a specific node (for e.g. ".cpp" files are associated with the
     "Source Files" filter).
 
-ConsoleApplication1.cpp
+main.cpp
     This is the main application source file.
 
 /////////////////////////////////////////////////////////////////////////////
@@ -38,3 +34,8 @@ AppWizard uses "TODO:" comments to indicate parts of the source code you
 should add to or customize.
 
 /////////////////////////////////////////////////////////////////////////////
+
+
+Current configuration assumes you have boost 1.55_0 installed and built.
+You have to add root folder of your boost installation to BOOST_ROOT env
+SET BOOST_ROOT=c:\boost_1.55_0

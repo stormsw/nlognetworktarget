@@ -2,7 +2,7 @@
 #include "udp_server.h"
 
 #define SIZE 26
-
+#define PORT 9999
 
 using boost::asio::ip::udp;
 
@@ -24,7 +24,7 @@ using boost::asio::ip::udp;
 	}
 
   udp_server::udp_server(boost::asio::io_service& io_service)
-    : socket_(io_service, udp::endpoint(udp::v4(), 13))
+    : socket_(io_service, udp::endpoint(udp::v4(), PORT))
   {
     start_receive();
   }
@@ -40,18 +40,24 @@ using boost::asio::ip::udp;
   }
 
   void udp_server::handle_receive(const boost::system::error_code& error,
-      std::size_t /*bytes_transferred*/)
+      std::size_t bytes_transferred)
   {
     if (!error || error == boost::asio::error::message_size)
     {
       boost::shared_ptr<std::string> message(
           new std::string(make_daytime_string()));
-
+	  
+	  /*
       socket_.async_send_to(boost::asio::buffer(*message), remote_endpoint_,
           boost::bind(&udp_server::handle_send, this, message,
             boost::asio::placeholders::error,
             boost::asio::placeholders::bytes_transferred));
+			*/
+	  char buf1[4096];
 
+	  memcpy_s(buf1,4096,recv_buffer_.data(),bytes_transferred);
+	  buf1[bytes_transferred]=0;
+	  printf(buf1);
       start_receive();
     }
   }
