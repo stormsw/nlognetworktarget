@@ -76,7 +76,6 @@ BOOL CtrlHandler(DWORD fdwCtrlType)
 
 int _tmain(int argc, _TCHAR* argv[])
 {
-
 	if (SetConsoleCtrlHandler((PHANDLER_ROUTINE)CtrlHandler, TRUE))
 	{
 		printf("\nThe Control Handler is installed.\n");
@@ -100,6 +99,7 @@ int _tmain(int argc, _TCHAR* argv[])
 		return 1;
 
 	}
+
 	return 0;
 }
 
