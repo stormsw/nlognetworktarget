@@ -310,6 +310,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <Text Include="License.txt">
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='ReleaseXP|Win32'">true</DeploymentContent>
+    </Text>
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
