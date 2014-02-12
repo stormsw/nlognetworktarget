@@ -178,3 +178,4 @@ Desktop.ini
 
 # Recycle Bin used on file shares
 $RECYCLE.BIN/
+/wix2/SetupProject/Product.wxs.backup
