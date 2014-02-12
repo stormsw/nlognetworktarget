@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
-  <Product Id="8f4008cc-1cd9-470b-8c07-1d177bbb262e" UpgradeCode="04903c35-8e3e-475e-8c9f-928265054449" Version="1.0.0.1" Language="1033" Name="NLOG UDP Network listener" Manufacturer="Alexander Varchenko">
+  <Product Id="8f4008cc-1cd9-470b-8c07-1d177bbb262e" 
+           UpgradeCode="04903c35-8e3e-475e-8c9f-928265054449" Version="1.0.0.1" 
+           Language="1033" 
+           Name="NLog UDP listener" Manufacturer="Alexander Varchenko">
     <Package InstallerVersion="405" Compressed="yes" />
     <Condition Message="This application is only supported on Windows Vista, Windows Server 2008, or higher.">
       <![CDATA[Installed OR (VersionNT >= 600)]]>
