@@ -11,10 +11,6 @@
 #include <boost/log/sources/severity_logger.hpp>
 #include <boost/log/sources/record_ostream.hpp>
 
-#define SIZE 26
-#define PORT 9999
-
-
 using boost::asio::ip::udp;
 
 namespace logging = boost::log;
@@ -80,8 +76,8 @@ std::string make_daytime_string()
 	return buf;
 }
 
-udp_server::udp_server(boost::asio::io_service& io_service)
-: socket_(io_service, udp::endpoint(udp::v4(), PORT))
+udp_server::udp_server(boost::asio::io_service& io_service, unsigned short port )
+: socket_(io_service, udp::endpoint(udp::v4(), port))
 {
 	start_receive();
 }

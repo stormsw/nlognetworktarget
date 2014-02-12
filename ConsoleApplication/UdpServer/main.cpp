@@ -76,6 +76,24 @@ BOOL CtrlHandler(DWORD fdwCtrlType)
 
 int _tmain(int argc, _TCHAR* argv[])
 {
+	unsigned short port=PORT;
+
+	printf("\nStarting listener...\n");
+	if(argc==1)
+	{
+		printf("\nPort is not specified, default %d used\n",PORT);
+	} else 
+	{
+		try{
+			std::basic_istringstream<_TCHAR> ss(argv[1]);		
+			ss >> port;
+			printf("\nPort specified as %d\n",port);
+		} catch (...)
+		{
+			printf("\nPort specified incorrectly, default %d used\n",PORT);
+		}
+	}
+
 	if (SetConsoleCtrlHandler((PHANDLER_ROUTINE)CtrlHandler, TRUE))
 	{
 		printf("\nThe Control Handler is installed.\n");
@@ -85,7 +103,7 @@ int _tmain(int argc, _TCHAR* argv[])
 
 		try
 		{
-			udp_server server(io_service);
+			udp_server server(io_service,port);
 			io_service.run();
 		}
 		catch (std::exception& e)

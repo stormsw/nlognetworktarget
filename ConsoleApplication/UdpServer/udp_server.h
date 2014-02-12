@@ -7,11 +7,13 @@
 #include <boost/shared_ptr.hpp>
 #include <boost/asio.hpp>
 using boost::asio::ip::udp;
+#define SIZE 26
+#define PORT 9999
 
 class udp_server
 {
 public:
-  udp_server(boost::asio::io_service& io_service);
+    udp_server(boost::asio::io_service& io_service, unsigned short port=PORT);
   ~udp_server(void);
 private:
   void start_receive();
