@@ -15,12 +15,13 @@
     <!-- Step 2: Add files to your installer package -->
     <DirectoryRef Id="APPLICATIONROOTDIRECTORY">
       <Component Id="NLogListener.exe" Guid="8f4008cc-1cd9-470b-8c07-1d177bbb262e">
+        <!-- TODO: how to use variales there? -->
         <File Id="NLogListener.exe" Source="..\..\ConsoleApplication\bin\ReleaseXP\x86\v110_xp\NLogListener.exe" 
               KeyPath="yes" Checksum="yes" />
       </Component>
-      <!--Component Id="documentation.html" Guid="PUT-GUID-HERE">
-        <File Id="documentation.html" Source="MySourceFiles\documentation.html" KeyPath="yes"/>
-      </Component-->
+      <Component Id="License.txt" Guid="8f4008cc-1dd9-470b-8c07-1d177bbb262e">
+        <File Id="License.txt" Source="..\..\ConsoleApplication\UdpServer\License.txt" KeyPath="yes"/>
+      </Component>
     </DirectoryRef>
     <DirectoryRef Id="TARGETDIR">
       <Merge Id="VCRedist" SourceFile="C:\Program Files (x86)\Common Files\Merge Modules\Microsoft_VC110_CRT_x86.msm" DiskId="1" Language="0"/>
@@ -28,7 +29,7 @@
     <!-- Step 3: Tell WiX to install the files -->
     <Feature Id="MainApplication" Title="Main Application" Level="1" InstallDefault="local" Absent="disallow" ConfigurableDirectory="TARGETDIR">
       <ComponentRef Id="NLogListener.exe" />
-      <!--ComponentRef Id="documentation.html" /-->
+      <ComponentRef Id="License.txt"/>
     </Feature>
     <Feature Id="VCRedist" Title="Visual C++ 11.0 Runtime" AllowAdvertise="no" Display="hidden" Level="1"
              InstallDefault="local" Absent="disallow" ConfigurableDirectory="TARGETDIR">
