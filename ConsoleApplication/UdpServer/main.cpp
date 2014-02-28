@@ -115,9 +115,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	{
 		printf("\nERROR: Could not set control handler");
 		return 1;
-
 	}
 
 	return 0;
 }
-
